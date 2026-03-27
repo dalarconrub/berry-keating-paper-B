@@ -111,8 +111,18 @@ the correction to GUE admits an expansion:
 \end{equation}
 
 The coefficient $b(v_1, v_2)$ determines the $O(1/\log^2 T)$ correction to
-spacing statistics. We show below that extracting $b$ cleanly requires
+spacing statistics. Figure~\ref{fig:bmap} shows the map of $b$ from
+Richardson$(1000, 3000)$. Extracting $b$ cleanly requires
 $L \geq 1000$ to suppress the $d/L^3$ contamination.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/fig1_b_rich_map.pdf}
+\caption{Richardson coefficient $b_{\mathrm{rich}}(v_1, v_2)$ from 318 grid
+points using $L = 1000$ and $L = 3000$. Positive values (red) near
+$R_3 \approx 1$ drive $c > 0$.}
+\label{fig:bmap}
+\end{figure}
 
 
 %% ================================================================
@@ -165,8 +175,25 @@ $(1000, 3000)$ & $+3.60$ & $66\%$ & $d/1000 \approx -0.25$ \\
 
 The dramatic increase from $\bar{b} = 0.52$ at $(80, 1000)$ to $\bar{b} = 3.60$
 at $(1000, 3000)$ is entirely due to elimination of the $d/80 \approx -3.2$
-contamination. Richardson at $(1000, 3000)$ has residual $d/1000 \approx -0.25$,
-an order of magnitude cleaner.
+contamination (Fig.~\ref{fig:bpairs}). Richardson at $(1000, 3000)$ has residual
+$d/1000 \approx -0.25$, an order of magnitude cleaner.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/fig4_b_rich_by_pair.pdf}
+\caption{Mean Richardson $b$ for different $(L_1, L_2)$ pairs. The jump from
+$(80, 1000)$ to $(1000, 3000)$ reflects elimination of $d/80 \approx -3.2$.
+Diamonds show medians.}
+\label{fig:bpairs}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/fig2_dR3L_convergence.pdf}
+\caption{Left: $\delta R_3 \cdot L$ at $L = 1000$ versus $L = 3000$ (318 points).
+Right: histogram of relative differences (median $0.09\%$).}
+\label{fig:convergence}
+\end{figure}
 
 \subsection{Symmetry}
 
@@ -215,10 +242,29 @@ $0.90$ & 88 & $+2.18$ & $175\%$ \\
 \end{table}
 
 A stable plateau $c \approx 1.22$--$1.24$ emerges in the range
-$R_3^{\min} \in [0.75, 0.80]$, reproducing $98$--$99\%$ of $c_{\mathrm{emp}}$.
+$R_3^{\min} \in [0.75, 0.80]$ (Fig.~\ref{fig:cscan}), reproducing
+$98$--$99\%$ of $c_{\mathrm{emp}}$.
 This region corresponds to $v_1, v_2 \sim 1$ (typical GUE gaps) where
 $p_2^{\mathrm{GUE}}$ is concentrated. Outside this region, $b$ is inflated
-by $d/L$ residuals (Table~\ref{tab:regions}).
+by $d/L$ residuals (Table~\ref{tab:regions}, Fig.~\ref{fig:bregions}).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/fig3_c_scan_R3.pdf}
+\caption{Ab initio $c$ versus $R_3$ threshold for Richardson$(1000, 3000)$.
+The empirical value $c_{\mathrm{emp}} = 1.245 \pm 0.040$ (green band) is
+matched in the plateau $R_3^{\min} \in [0.75, 0.80]$ (orange).}
+\label{fig:cscan}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.55\textwidth]{figures/fig5_b_by_R3_region.pdf}
+\caption{Mean $b_{\mathrm{rich}}(1000, 3000)$ by $R_3^{\mathrm{GUE}}$ region.
+The low-$R_3$ region ($< 0.45$) has $\bar{b} = +12.8$ (inflated by $d/L$ residuals).
+The physical signal is in $R_3 > 0.80$ ($\bar{b} = +1.7$).}
+\label{fig:bregions}
+\end{figure}
 
 \begin{table}[ht]
 \centering
@@ -298,8 +344,17 @@ comparable to the empirical $|\delta\sigma_{\mathrm{emp}} \cdot L^2| = 0.16$
 within an order of magnitude.
 \item \textbf{Wrong sign:} $\delta\sigma^{\mathrm{BK}} > 0$ (spacing distribution
 \emph{widens}), while $\delta\sigma_{\mathrm{emp}} < 0$ (distribution
-\emph{narrows}).
+\emph{narrows}). See Fig.~\ref{fig:fredholm}.
 \end{enumerate}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/fig6_fredholm_dsigma.pdf}
+\caption{Left: $\delta\sigma \cdot L^2$ at $s = 0.5$ and $s = 1.0$---Fredholm
+$K^{\mathrm{BK}}$ (red) has the wrong sign versus empirical (green).
+Right: the Fredholm result explodes for $s > 1.5$.}
+\label{fig:fredholm}
+\end{figure}
 
 \begin{table}[ht]
 \centering
@@ -373,6 +428,16 @@ Richardson at $(1000, 3000)$ with $d/1000 \approx -0.25$ is sufficiently clean.
 
 The Conrey-Snaith route (approach 35) bypasses all of these by working
 with $R_3 = |K|^2$ (phase-immune) at $L \geq 1000$ ($d/L$ negligible).
+Figure~\ref{fig:summary} summarises all methods.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/fig7_methods_comparison.pdf}
+\caption{Comparison of $c$ from five methods. Only CS Richardson$(1000, 3000)$
+with $R_3 > 0.80$ (green) matches $c_{\mathrm{emp}}$ (green band). The
+Fredholm $K^{\mathrm{BK}}$ (red) has the wrong sign.}
+\label{fig:summary}
+\end{figure}
 
 
 %% ================================================================
