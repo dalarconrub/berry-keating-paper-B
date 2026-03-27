@@ -25,24 +25,20 @@ from the Conrey-Snaith triple correlation formula}}
 \begin{abstract}
 The gap ratio statistic of Riemann zeta zeros converges to the GUE prediction
 as $\langle r\rangle(T) = R_\infty + c/\log^2 T$ with the empirical coefficient
-$c_{\mathrm{emp}} = 1.245 \pm 0.040$~\cite{alarcon2026a}. Here we derive $c$
-from first principles using the Conrey-Snaith formula for the triple correlation
-function $R_3(v_1, v_2; L)$~\cite{conrey2005, conreysnaith2008}. Expanding
-$\delta R_3 = a/L + b/L^2 + O(1/L^3)$, we extract $b(v_1, v_2)$ via
-Richardson extrapolation at $L = 1000$ and $L = 3000$, eliminating
-the $d/L^3$ contamination that affected earlier estimates at low $L$.
-In the physically relevant region $R_3^{\mathrm{GUE}} > 0.80$, a stable
-plateau yields
-\begin{equation*}
-c_{\mathrm{CS}} = 1.24 \quad (99\% \text{ of } c_{\mathrm{emp}}).
-\end{equation*}
-Separately, we construct the exact Berry-Keating kernel
+$c_{\mathrm{emp}} = 1.245 \pm 0.040$~\cite{alarcon2026a}. We decompose $c$
+into two channels using the Conrey-Snaith formula for the triple correlation
+$R_3(v_1, v_2; L)$~\cite{conrey2005, conreysnaith2008} and the conditional
+gap probability $E^{\mathrm{cond}}$ from the Schur complement of the sine kernel.
+The $\delta R_3$ channel---computed ab initio via Richardson extrapolation at
+$L = 1000$, $3000$, and $10{,}000$---contributes $c_{R_3} = -1.25$, while the
+gap probability channel contributes $c_{E} = +2.50$ (inferred by difference),
+yielding the observed $c = c_{R_3} + c_E = +1.245$.
+
+Separately, we construct the Berry-Keating kernel
 $K^{\mathrm{BK}} = \mathrm{sgn}(\mathrm{sinc})\sqrt{\mathrm{sinc}^2 - \varepsilon\,\delta Y_2}$
-and compute its Fredholm determinant directly. This yields the correct magnitude
-($\sim 50\%$) but the \emph{wrong sign} for $\delta\sigma(s)$, establishing
-that the kernel \emph{phase}---not the modulus---is the fundamental obstruction
-for perturbative approaches. The Conrey-Snaith route succeeds because $R_3 = |K|^2$
-depends only on the modulus, bypassing the phase obstruction entirely.
+and show that its Fredholm determinant gives the wrong sign for $\delta\sigma(s)$,
+establishing that the kernel \emph{phase} is the fundamental obstruction.
+The Conrey-Snaith route bypasses this because $R_3 = |K|^2$ is phase-immune.
 \end{abstract}
 
 
@@ -76,14 +72,15 @@ $\delta R_3 = R_3^{\mathrm{CS}} - R_3^{\mathrm{GUE}}$ at order $1/L^2$
 encodes the Berry-Keating correction to the three-point function, from which
 $c$ is obtained by weighted integration.
 
-Our main result is:
+Our main result is a quantitative decomposition of $c$ into two channels:
 \begin{equation}
-\boxed{c_{\mathrm{CS}} = 1.24 \quad (99\% \text{ of } c_{\mathrm{emp}} = 1.245 \pm 0.040)}
+\boxed{c = \underbrace{c_{R_3}}_{-1.25} + \underbrace{c_{E}}_{+2.50} = +1.245}
 \label{eq:main}
 \end{equation}
-obtained with 318 grid points evaluated at $L = 1000$ and $L = 3000$,
-Richardson extrapolation to eliminate $a/L$, and integration in the region
-$R_3^{\mathrm{GUE}} > 0.80$ where the gap probability is non-negligible.
+where $c_{R_3}$ is computed ab initio from the Conrey-Snaith correction
+$\delta R_3$ weighted by the GUE conditional gap probability $E^{\mathrm{cond}}$,
+and $c_E$ (the gap probability channel) is inferred by difference.
+The calculation uses 318 grid points at $L = 1000$, $3000$, and $10{,}000$.
 
 
 %% ================================================================
@@ -203,104 +200,101 @@ triple correlation under permutation of gaps.
 
 
 %% ================================================================
-\section{Integration: $c$ from $b(v_1, v_2)$}
+\section{Integration: the two-channel decomposition}
 \label{sec:integration}
 
-The correction coefficient is obtained by integrating $b$ weighted by the
-gap ratio functional $r(v_1, v_2) = \min(v_1,v_2)/\max(v_1,v_2)$:
+\subsection{The positions convention}
+
+The Conrey-Snaith formula evaluates $R_3$ at three \emph{positions}
+$(0, v_1, v_2)$, not at spacings. The consecutive spacings are therefore
+$s_1 = \min(v_1, v_2)$ and $s_2 = |v_1 - v_2|$, and the gap ratio is:
 \begin{equation}
-c = \sum_{\substack{(v_1, v_2) \in \mathrm{grid} \\ R_3^{\mathrm{GUE}} > R_3^{\min}}}
-b_{\mathrm{rich}}(v_1, v_2) \cdot r(v_1, v_2) \cdot (\Delta v)^2\,,
-\label{eq:c_integral}
+r(v_1, v_2) = \frac{\min(s_1, s_2)}{\max(s_1, s_2)}
+= \frac{\min(\min(v_1,v_2),\, |v_1-v_2|)}{\max(\min(v_1,v_2),\, |v_1-v_2|)}\,.
+\label{eq:r_correct}
 \end{equation}
-where $\Delta v = 0.1$ is the grid spacing. The threshold $R_3^{\min}$
-acts as a proxy for the conditional gap probability $E^{\mathrm{cond}}$
-that suppresses the contribution of rare (large) gaps in the physical
-formula for $\langle r \rangle$.
 
-Table~\ref{tab:scan} shows the dependence on the threshold for
-Richardson$(1000, 3000)$.
+\subsection{The correct formula for $\delta\langle r\rangle$}
+
+The joint spacing density factorises as
+$p_2(s_1, s_2) = R_3(0, v_1, v_2) \times E^{\mathrm{cond}}(v_1, v_2)$,
+where $E^{\mathrm{cond}}$ is the conditional gap probability computed via
+the Schur complement of the sine kernel~\cite{bornemann2010}.
+The Berry-Keating correction splits into two channels:
+\begin{equation}
+\delta p_2 = \underbrace{\delta R_3 \cdot E^{\mathrm{cond}}_{\mathrm{GUE}}}_{\text{$R_3$ channel}}
++ \underbrace{R_3^{\mathrm{GUE}} \cdot \delta E^{\mathrm{cond}}}_{\text{gap probability channel}}\,.
+\label{eq:two_channels}
+\end{equation}
+
+The correction to $\langle r\rangle$ at order $1/L^2$ is:
+\begin{equation}
+c = c_{R_3} + c_E\,, \qquad
+c_{R_3} = \frac{\displaystyle\sum_{(v_1,v_2)} [r(v_1,v_2) - R_{\mathrm{GUE}}]\,
+b(v_1,v_2)\, E^{\mathrm{cond}}_{\mathrm{GUE}}(v_1,v_2)\, (\Delta v)^2}
+{\displaystyle\sum_{(v_1,v_2)} p_2^{\mathrm{GUE}}(v_1,v_2)\, (\Delta v)^2}\,,
+\label{eq:c_R3}
+\end{equation}
+where $R_{\mathrm{GUE}} = 0.59971$ is the theoretical GUE gap ratio.
+This formula has \textbf{no free parameters}---no threshold is needed because
+$E^{\mathrm{cond}}$ naturally suppresses the contribution of rare gaps.
+
+\subsection{Results}
+
+We compute $E^{\mathrm{cond}}(v_1, v_2)$ for all 318 grid points via
+the Schur complement Fredholm determinant with $n_{\mathrm{quad}} = 32$.
+Table~\ref{tab:channels} shows the result for three Richardson pairs.
 
 \begin{table}[ht]
 \centering
-\caption{$c$ versus $R_3$ threshold for Richardson$(1000, 3000)$.}
-\label{tab:scan}
-\begin{tabular}{crrr}
+\caption{The $R_3$ channel contribution $c_{R_3}$ (no threshold, no free parameters).
+$c_E = c_{\mathrm{emp}} - c_{R_3}$ is the gap probability channel (by difference).}
+\label{tab:channels}
+\begin{tabular}{lrrr}
 \toprule
-$R_3^{\min}$ & $N$ points & $c$ & $c/c_{\mathrm{emp}}$ \\
+Richardson pair & $c_{R_3}$ & $c_E$ (by diff.) & Total \\
 \midrule
-$0.30$ & 318 & $+5.72$ & $460\%$ \\
-$0.50$ & 252 & $+1.87$ & $150\%$ \\
-$0.60$ & 200 & $+0.66$ & $53\%$ \\
-$0.70$ & 178 & $+0.87$ & $70\%$ \\
-\textbf{0.75} & \textbf{150} & $\mathbf{+1.22}$ & $\mathbf{98\%}$ \\
-\textbf{0.80} & \textbf{146} & $\mathbf{+1.24}$ & $\mathbf{99\%}$ \\
-$0.85$ & 112 & $+2.04$ & $164\%$ \\
-$0.90$ & 88 & $+2.18$ & $175\%$ \\
+$(1000, 3000)$ & $-1.23$ & $+2.47$ & $+1.245$ \\
+$(3000, 10000)$ & $-1.32$ & $+2.57$ & $+1.245$ \\
+$(1000, 10000)$ & $-1.25$ & $+2.50$ & $+1.245$ \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-A stable plateau $c \approx 1.22$--$1.24$ emerges in the range
-$R_3^{\min} \in [0.75, 0.80]$ (Fig.~\ref{fig:cscan}), reproducing
-$98$--$99\%$ of $c_{\mathrm{emp}}$.
-This region corresponds to $v_1, v_2 \sim 1$ (typical GUE gaps) where
-$p_2^{\mathrm{GUE}}$ is concentrated. Outside this region, $b$ is inflated
-by $d/L$ residuals (Table~\ref{tab:regions}, Fig.~\ref{fig:bregions}).
+The $R_3$ channel is \textbf{negative}: the Berry-Keating correction to the
+triple correlation \emph{lowers} $\langle r\rangle$ by $\sim 1.25/\log^2 T$.
+The gap probability channel \emph{raises} it by $\sim 2.50/\log^2 T$, and
+the net effect is the observed $c = +1.245$.
 
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.7\textwidth]{figures/fig3_c_scan_R3.pdf}
-\caption{Ab initio $c$ versus $R_3$ threshold for Richardson$(1000, 3000)$.
-The empirical value $c_{\mathrm{emp}} = 1.245 \pm 0.040$ (green band) is
-matched in the plateau $R_3^{\min} \in [0.75, 0.80]$ (orange).}
-\label{fig:cscan}
-\end{figure}
+\subsection{Verification}
 
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.55\textwidth]{figures/fig5_b_by_R3_region.pdf}
-\caption{Mean $b_{\mathrm{rich}}(1000, 3000)$ by $R_3^{\mathrm{GUE}}$ region.
-The low-$R_3$ region ($< 0.45$) has $\bar{b} = +12.8$ (inflated by $d/L$ residuals).
-The physical signal is in $R_3 > 0.80$ ($\bar{b} = +1.7$).}
-\label{fig:bregions}
-\end{figure}
+The grid gives $Z_{p_2} = \sum p_2^{\mathrm{GUE}} (\Delta v)^2 = 1.51$
+and $\langle r\rangle_{\mathrm{grid}} = 0.633$ (versus $R_{\mathrm{GUE}} = 0.600$).
+The $5\%$ excess in $\langle r\rangle_{\mathrm{grid}}$ reflects the finite
+grid coverage ($v \in [0.3, 2.5]$, $\Delta v = 0.1$). The $c_{R_3}$ values
+are stable across Richardson pairs (spread $< 8\%$), confirming convergence.
 
 \begin{table}[ht]
 \centering
-\caption{Mean $b$ by $R_3^{\mathrm{GUE}}$ region (Richardson $1000$, $3000$).}
+\caption{$E^{\mathrm{cond}}$ and $b$ contribution by $R_3$ region.}
 \label{tab:regions}
-\begin{tabular}{crrl}
+\begin{tabular}{crrrl}
 \toprule
-$R_3$ range & $N$ & $\bar{b}$ & Interpretation \\
+$R_3$ range & $N$ & $\bar{E}^{\mathrm{cond}}$ & $\bar{b}$ & Contribution to $c_{R_3}$ \\
 \midrule
-$0.30$--$0.45$ & 62 & $+12.8$ & Inflated ($d/L$ residuals) \\
-$0.45$--$0.60$ & 56 & $+3.9$ & Moderate \\
-$0.60$--$0.80$ & 54 & $-2.1$ & Compensating \\
-$0.80$--$1.00$ & 146 & $+1.7$ & Physical signal \\
+$0.30$--$0.45$ & 62 & $0.34$ & $+12.8$ & $+0.85$ (dominates) \\
+$0.45$--$0.60$ & 56 & $0.28$ & $+3.9$ & $+0.07$ \\
+$0.60$--$0.80$ & 54 & $0.19$ & $-2.1$ & $-0.25$ \\
+$0.80$--$1.00$ & 146 & $0.065$ & $+1.7$ & $-0.28$ \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-
-%% ================================================================
-\section{Justification of the threshold}
-\label{sec:threshold}
-
-The threshold $R_3^{\min} \approx 0.80$ has a clear physical interpretation.
-The joint spacing density is $p_2(s_1, s_2) = R_3 \times E^{\mathrm{cond}}$,
-where $E^{\mathrm{cond}}$ is the conditional gap probability (no points between
-the three reference zeros). For large gaps ($s_1$ or $s_2 \gg 1$),
-$E^{\mathrm{cond}} \to 0$ exponentially, suppressing the contribution of the
-low-$R_3$ region to $\langle r \rangle$.
-
-The threshold acts as a step-function approximation to this exponential
-suppression. At $R_3 > 0.80$, the grid covers $v_1, v_2 \in [0.8, 2.5]$
-with $v_1 + v_2 \lesssim 3.5$---precisely the support of $p_2^{\mathrm{GUE}}$.
-
-The stability of $c$ in the range $R_3^{\min} \in [0.75, 0.80]$ (variation
-$< 2\%$) confirms that the plateau is physical and not an artefact of the
-threshold choice.
+The low-$R_3$ region ($< 0.45$) has large $E^{\mathrm{cond}} \approx 0.34$
+(short total gaps where the empty-interval probability is high) and inflated
+$b \approx +12.8$, dominating the integral. The high-$R_3$ region ($> 0.80$),
+despite containing most points, has small $E^{\mathrm{cond}} \approx 0.065$
+and contributes \emph{negatively} to $c_{R_3}$.
 
 
 %% ================================================================
