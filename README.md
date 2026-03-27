@@ -1,6 +1,6 @@
-# Ab initio calculation of the Berry-Keating correction coefficient
+# Ab initio derivation of the Berry-Keating correction coefficient
 
-**Paper:** "Ab initio calculation of the Berry-Keating correction coefficient
+**Paper:** "Ab initio derivation of the Berry-Keating correction coefficient
 from the Conrey-Snaith triple correlation formula"
 
 **Author:** David Alarcon, Universidad Pablo de Olavide, Sevilla, Spain
