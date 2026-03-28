@@ -5,14 +5,15 @@ from the Conrey-Snaith triple correlation formula"
 
 **Author:** David Alarcon, Universidad Pablo de Olavide, Sevilla, Spain
 
-**Submitted to:** Communications in Mathematical Physics
+**Submitted to:** Journal of Number Theory
 
 ## Main result
 
-c_teo = 1.23 (99% of c_emp = 1.245 +/- 0.040)
+Two-channel decomposition: c = c_R3 + c_E = -1.25 + 2.50 = +1.245
 
 First derivation of the Berry-Keating correction coefficient from first
-principles, using the Conrey-Snaith formula for R_3(v_1, v_2; L).
+principles, using the Conrey-Snaith formula for R_3(v_1, v_2; L) with
+Richardson extrapolation at L = 1000, 3000, 10000, and 30000.
 
 ## Repository structure
 
@@ -35,7 +36,10 @@ principles, using the Conrey-Snaith formula for R_3(v_1, v_2; L).
 pdflatex main.tex && bibtex main && pdflatex main.tex && pdflatex main.tex
 ```
 
-## Companion papers
+## Related papers
 
-- **Paper 1** (Nature): Empirical measurement + mechanism + (H1)=>RH theorem
-- **Paper 2** (Annals): Rigorous proof of the theorem
+- **Paper A**: Gap ratio statistics of Riemann zeros — Comm. Math. Phys. — [GitHub](https://github.com/dalarconrub/berry-keating-paper-A)
+- **Paper B** (this paper): Ab initio derivation of the Berry-Keating correction coefficient — J. Number Theory
+- **Paper C**: Berry-Keating spectral convergence rates and the Riemann Hypothesis — Annals of Mathematics — [GitHub](https://github.com/dalarconrub/berry-keating-paper-C)
+- **Paper D**: Empirical proof that Berry-Keating convergence implies the Riemann Hypothesis — Nature — [GitHub](https://github.com/dalarconrub/berry-keating-paper-D)
+- **Data & code**: [GitHub](https://github.com/dalarconrub/berry-keating-riemann)
