@@ -1,4 +1,5 @@
 # Ab initio derivation of the Berry-Keating correction coefficient from the Conrey-Snaith triple correlation formula
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19268985.svg)](https://doi.org/10.5281/zenodo.19268985)
 
 **Author:** David Alarcon, Universidad Pablo de Olavide, Sevilla, Spain
 
