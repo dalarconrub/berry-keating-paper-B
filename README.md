@@ -5,7 +5,7 @@ from the Conrey-Snaith triple correlation formula"
 
 **Author:** David Alarcon, Universidad Pablo de Olavide, Sevilla, Spain
 
-**Submitted to:** Journal of Number Theory
+**Zenodo DOI:** [10.5281/zenodo.19268985](https://doi.org/10.5281/zenodo.19268985)
 
 ## Main result
 
