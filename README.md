@@ -42,4 +42,5 @@ pdflatex main.tex && bibtex main && pdflatex main.tex && pdflatex main.tex
 - **Paper B** (this paper): Ab initio derivation of the Berry-Keating correction coefficient — J. Number Theory
 - **Paper C**: Berry-Keating spectral convergence rates and the Riemann Hypothesis — Annals of Mathematics — [GitHub](https://github.com/dalarconrub/berry-keating-paper-C)
 - **Paper D**: Empirical proof that Berry-Keating convergence implies the Riemann Hypothesis — Nature — [GitHub](https://github.com/dalarconrub/berry-keating-paper-D)
+- **Paper E**: Spectral gap functions bounded below by band-limited functions — J. Fourier Anal. Appl. — [GitHub](https://github.com/dalarconrub/berry-keating-paper-E)
 - **Data & code**: [GitHub](https://github.com/dalarconrub/berry-keating-riemann)
