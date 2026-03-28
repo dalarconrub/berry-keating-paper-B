@@ -59,13 +59,12 @@ the correction coefficient for the gap ratio statistic:
 \label{eq:empirical}
 \end{equation}
 
-Despite extensive theoretical effort---35 distinct approaches documented in
-Section~\ref{sec:obstructions}---no perturbative derivation of $c$ from the
-Berry-Keating kernel had been achieved. All such methods fail due to a
-structural obstruction: the \emph{phase} of the kernel $K^{\mathrm{BK}}$
-is unknown, and the natural choice $\mathrm{sgn}(\mathrm{sinc})$ produces
-the wrong sign for the spacing distribution correction
-(Section~\ref{sec:fredholm}).
+A systematic exploration of perturbative approaches
+(Section~\ref{sec:obstructions}) revealed a structural obstruction preventing
+any direct derivation of $c$ from the Berry-Keating kernel: the \emph{phase}
+of $K^{\mathrm{BK}}$ is unknown, and the natural choice
+$\mathrm{sgn}(\mathrm{sinc})$ produces the wrong sign for the spacing
+distribution correction (Section~\ref{sec:fredholm}).
 
 In this paper, we circumvent this obstruction by working directly with the
 triple correlation function $R_3(v_1, v_2; L)$ via the Conrey-Snaith
@@ -314,8 +313,8 @@ and contributes \emph{negatively} to $c_{R_3}$.
 \section{The Fredholm determinant of $K^{\mathrm{BK}}$: a diagnostic}
 \label{sec:fredholm}
 
-To understand \emph{why} the Conrey-Snaith route succeeds where 34 perturbative
-approaches failed, we constructed the exact Berry-Keating kernel and computed
+To understand \emph{why} the Conrey-Snaith route succeeds where perturbative
+approaches do not, we constructed the exact Berry-Keating kernel and computed
 its Fredholm determinant directly.
 
 \subsection{The signed kernel}
@@ -407,10 +406,11 @@ the empirical $\sigma(s)$. This is an open problem in mathematical physics.
 \section{Why the Conrey-Snaith route is necessary}
 \label{sec:obstructions}
 
-Before arriving at the $R_3$ decomposition, we explored 34 alternative
-approaches to derive $c$ from the Berry-Keating kernel. Each failure
-reveals a structural insight that collectively explains why $R_3 = |K|^2$
-is the only viable route. We organise them by the obstruction encountered.
+Before arriving at the $R_3$ decomposition, we systematically explored
+alternative approaches to derive $c$ from the Berry-Keating kernel.
+Each approach reveals a structural insight that collectively explains
+why $R_3 = |K|^2$ is the only viable route. We organise the findings
+by the obstruction encountered.
 
 \paragraph{Layer 1: The $\mathrm{sinc}(1) = 0$ barrier.}
 The most natural approach is to perturb the GUE kernel:
@@ -529,8 +529,9 @@ $L = 3000$ for 318 grid points, Richardson extrapolation to eliminate the
 leading $a/L$ term, and integration in the region $R_3^{\mathrm{GUE}} > 0.80$
 where the joint spacing density is concentrated.
 
-The 34 failed perturbative approaches document a fundamental obstruction:
-the \emph{phase} of the Berry-Keating kernel. The Fredholm determinant
+The systematic exploration of perturbative approaches
+(Section~\ref{sec:obstructions}) identifies the kernel \emph{phase} as
+the fundamental obstruction. The Fredholm determinant
 $\det(I - K^{\mathrm{BK}})$ with phase $\mathrm{sgn}(\mathrm{sinc})$ gives
 the correct magnitude but wrong sign for $\delta\sigma(s)$. The
 Conrey-Snaith route bypasses this because $R_3 = |K|^2$ is phase-immune.
